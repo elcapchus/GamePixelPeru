@@ -121,14 +121,14 @@
   <!-- Nieve Pixelada (Canvas) -->
   <canvas id="snowCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
-  <!-- Audio de Fondo: /cholitojesus8bit.mp3 -->
+  <!-- Audio de Fondo -->
   <audio id="bgMusic" loop src="cholitojesus8bit.mp3"></audio>
 
   <!-- Reproductor Flotante Ultra Responsivo -->
   <div class="fixed top-3 right-3 z-50 flex items-center gap-2 bg-slate-900/95 border-2 border-emerald-500 p-2 pixel-box-green shadow-2xl">
-    <button id="musicToggle" onclick="toggleAudio()" class="pixel-btn bg-emerald-600 hover:bg-emerald-500 text-white p-2 text-[10px] md:text-xs font-pixel flex items-center gap-1.5">
+    <button id="musicToggle" onclick="toggleAudio()" class="pixel-btn bg-red-600 hover:bg-red-500 text-white p-2 text-[10px] md:text-xs font-pixel flex items-center gap-1.5">
       <i data-lucide="volume-x" id="musicIcon" class="w-4 h-4"></i>
-      <span id="musicText" class="hidden sm:inline">25% OFF</span>
+      <span id="musicText" class="hidden sm:inline">Música: OFF</span>
     </button>
     <div class="flex items-center gap-1">
       <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.25" oninput="changeVolume(this.value)" class="w-14 sm:w-20 accent-emerald-500 cursor-pointer h-2 bg-slate-800 rounded-none">
@@ -169,7 +169,7 @@
           <h2 class="font-pixel text-yellow-400 text-xs sm:text-sm mb-1">Los Toribianitos 8-Bit</h2>
           <p class="text-[11px] text-slate-300 mb-3">El icónico coro escolar peruano celebrando la Navidad al estilo clásico.</p>
         </div>
-        <button onclick="downloadExactImage('testimagen.jpg')" class="pixel-btn w-full bg-red-600 hover:bg-red-500 text-white font-pixel text-[11px] py-2.5 px-3 border-2 border-black flex items-center justify-center gap-2">
+        <button onclick="downloadExactImage('cilx7.jpg')" class="pixel-btn w-full bg-red-600 hover:bg-red-500 text-white font-pixel text-[11px] py-2.5 px-3 border-2 border-black flex items-center justify-center gap-2">
           <i data-lucide="download" class="w-4 h-4"></i> DESCARGAR GRATIS
         </button>
       </div>
@@ -283,7 +283,7 @@
     <!-- Footer -->
     <footer class="text-center py-6 border-t border-slate-900 text-slate-500 text-[10px] sm:text-xs font-pixel space-y-1">
       <p>FELIZ NAVIDAD 2026 EN EL PERÚ 🎄✨</p>
-      <p class="text-slate-600">Artes 8-Bit • Música: /cholitojesus8bit.mp3 (25% Vol)</p>
+      <p class="text-slate-600">Artes 8-Bit • Música: cholitojesus8bit.mp3 (25% Vol)</p>
     </footer>
 
   </div>
@@ -304,43 +304,49 @@
 
     let isPlaying = false;
 
-    function toggleAudio() {
+    function updateAudioUI(playing) {
+      isPlaying = playing;
       if (isPlaying) {
-        audio.pause();
+        musicText.innerText = "Música: ON";
+        musicBtn.classList.remove('bg-red-600', 'hover:bg-red-500');
+        musicBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-500');
+        musicIcon.setAttribute('data-lucide', 'volume-2');
+      } else {
         musicText.innerText = "Música: OFF";
         musicBtn.classList.remove('bg-emerald-600', 'hover:bg-emerald-500');
         musicBtn.classList.add('bg-red-600', 'hover:bg-red-500');
         musicIcon.setAttribute('data-lucide', 'volume-x');
+      }
+      lucide.createIcons();
+    }
+
+    function toggleAudio() {
+      if (isPlaying) {
+        audio.pause();
+        updateAudioUI(false);
       } else {
         audio.play().then(() => {
-          musicText.innerText = "Música: ON";
-          musicBtn.classList.remove('bg-red-600', 'hover:bg-red-500');
-          musicBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-500');
-          musicIcon.setAttribute('data-lucide', 'volume-2');
+          updateAudioUI(true);
         }).catch(err => {
-          console.log("Audio autoplay prevented by browser.");
+          console.log("Reproducción bloqueada o error:", err);
+          alert("El navegador requiere interacción previa o el archivo no se pudo reproducir.");
         });
       }
-      isPlaying = !isPlaying;
-      lucide.createIcons();
     }
 
     function changeVolume(val) {
       audio.volume = parseFloat(val);
       const percent = Math.round(val * 100);
-      musicText.innerText = percent + "%";
+      if (isPlaying) {
+        musicText.innerText = percent + "%";
+      }
     }
 
     // Autoplay con primera interacción del usuario en la página
     document.addEventListener('click', function autoPlayOnce() {
       if (!isPlaying) {
         audio.play().then(() => {
-          isPlaying = true;
-          musicText.innerText = "25% ON";
-          musicBtn.classList.remove('bg-red-600', 'hover:bg-red-500');
-          musicBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-500');
-          musicIcon.setAttribute('data-lucide', 'volume-2');
-          lucide.createIcons();
+          updateAudioUI(true);
         }).catch(() => {});
       }
       document.removeEventListener('click', autoPlayOnce);
