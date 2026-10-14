@@ -2,7 +2,7 @@
 <html lang="es" class="h-full bg-slate-950">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Navidad Pixel Art Perú 8-Bit - Descargas Gratis</title>
   
   <!-- Tailwind CSS -->
@@ -17,56 +17,65 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Estilos Pixel Art Personalizados */
     body {
       font-family: 'Silkscreen', cursive, sans-serif;
       image-rendering: pixelated;
       background-color: #0c0a09;
       color: #f8fafc;
+      overflow-x: hidden;
     }
 
     .font-pixel {
       font-family: 'Press Start 2P', monospace;
     }
 
-    /* Borde Pixelado Retro estilo NES */
+    /* Bordes Pixelados Retro */
     .pixel-box {
       box-shadow: 
-        0 -4px 0 0 #000,
-        0 4px 0 0 #000,
-        -4px 0 0 0 #000,
-        4px 0 0 0 #000,
-        0 0 0 4px #dc2626;
+        0 -3px 0 0 #000,
+        0 3px 0 0 #000,
+        -3px 0 0 0 #000,
+        3px 0 0 0 #000,
+        0 0 0 3px #dc2626;
     }
 
     .pixel-box-green {
       box-shadow: 
-        0 -4px 0 0 #000,
-        0 4px 0 0 #000,
-        -4px 0 0 0 #000,
-        4px 0 0 0 #000,
-        0 0 0 4px #16a34a;
+        0 -3px 0 0 #000,
+        0 3px 0 0 #000,
+        -3px 0 0 0 #000,
+        3px 0 0 0 #000,
+        0 0 0 3px #16a34a;
     }
 
     .pixel-box-gold {
       box-shadow: 
-        0 -4px 0 0 #000,
-        0 4px 0 0 #000,
-        -4px 0 0 0 #000,
-        4px 0 0 0 #000,
-        0 0 0 4px #eab308;
+        0 -3px 0 0 #000,
+        0 3px 0 0 #000,
+        -3px 0 0 0 #000,
+        3px 0 0 0 #000,
+        0 0 0 3px #eab308;
     }
 
     .pixel-box-purple {
       box-shadow: 
-        0 -4px 0 0 #000,
-        0 4px 0 0 #000,
-        -4px 0 0 0 #000,
-        4px 0 0 0 #000,
-        0 0 0 4px #7e22ce;
+        0 -3px 0 0 #000,
+        0 3px 0 0 #000,
+        -3px 0 0 0 #000,
+        3px 0 0 0 #000,
+        0 0 0 3px #9333ea;
     }
 
-    /* Botones Arcade con Efecto 3D Pixel */
+    .pixel-box-cyan {
+      box-shadow: 
+        0 -3px 0 0 #000,
+        0 3px 0 0 #000,
+        -3px 0 0 0 #000,
+        3px 0 0 0 #000,
+        0 0 0 3px #06b6d4;
+    }
+
+    /* Botones Arcade con Efecto 3D */
     .pixel-btn {
       position: relative;
       border: none;
@@ -74,33 +83,29 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.1s ease;
-      box-shadow: inset -4px -4px 0px 0px rgba(0,0,0,0.5), inset 4px 4px 0px 0px rgba(255,255,255,0.3);
+      transition: all 0.08s ease;
+      box-shadow: inset -3px -3px 0px 0px rgba(0,0,0,0.6), inset 3px 3px 0px 0px rgba(255,255,255,0.4);
     }
 
     .pixel-btn:active {
       transform: translate(2px, 2px);
-      box-shadow: inset 2px 2px 0px 0px rgba(0,0,0,0.5);
+      box-shadow: inset 2px 2px 0px 0px rgba(0,0,0,0.6);
     }
 
-    /* Scanlines para pantalla CRT vintage */
+    /* Scanlines CRT */
     .scanlines {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       pointer-events: none;
-      background: linear-gradient(
-        rgba(18, 16, 16, 0) 50%, 
-        rgba(0, 0, 0, 0.25) 50%
-      );
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
       background-size: 100% 4px;
       z-index: 40;
-      opacity: 0.6;
+      opacity: 0.5;
     }
 
-    /* Animación Brillo Titulo */
     @keyframes titleGlow {
-      0%, 100% { text-shadow: 3px 3px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 0 0 10px #ef4444; }
-      50% { text-shadow: 3px 3px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 0 0 20px #eab308; }
+      0%, 100% { text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 0 0 8px #ef4444; }
+      50% { text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 0 0 15px #eab308; }
     }
 
     .title-glow {
@@ -108,196 +113,194 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col relative overflow-x-hidden">
+<body class="min-h-screen flex flex-col relative bg-slate-950 text-slate-100">
 
-  <!-- Efecto Scanline Retro -->
+  <!-- Efecto Scanlines -->
   <div class="scanlines"></div>
 
-  <!-- Nieve Pixelada de Fondo (Canvas) -->
+  <!-- Nieve Pixelada (Canvas) -->
   <canvas id="snowCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
-  <!-- Audio de Fondo (Requisito: /cholitojesus8bit.mp3 a 25% volumen) -->
+  <!-- Audio de Fondo: /cholitojesus8bit.mp3 -->
   <audio id="bgMusic" loop src="/cholitojesus8bit.mp3"></audio>
 
-  <!-- Control de Audio Flotante Retro -->
-  <div class="fixed top-4 right-4 z-50 flex items-center gap-2">
-    <button id="musicToggle" onclick="toggleAudio()" class="pixel-btn bg-emerald-600 hover:bg-emerald-500 text-white p-3 border-2 border-black rounded-none shadow-lg text-xs md:text-sm font-pixel flex items-center gap-2">
-      <i data-lucide="volume-x" id="musicIcon" class="w-5 h-5"></i>
-      <span id="musicText">Música: OFF</span>
+  <!-- Reproductor Flotante Ultra Responsivo -->
+  <div class="fixed top-3 right-3 z-50 flex items-center gap-2 bg-slate-900/95 border-2 border-emerald-500 p-2 pixel-box-green shadow-2xl">
+    <button id="musicToggle" onclick="toggleAudio()" class="pixel-btn bg-emerald-600 hover:bg-emerald-500 text-white p-2 text-[10px] md:text-xs font-pixel flex items-center gap-1.5">
+      <i data-lucide="volume-x" id="musicIcon" class="w-4 h-4"></i>
+      <span id="musicText" class="hidden sm:inline">25% OFF</span>
     </button>
+    <div class="flex items-center gap-1">
+      <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.25" oninput="changeVolume(this.value)" class="w-14 sm:w-20 accent-emerald-500 cursor-pointer h-2 bg-slate-800 rounded-none">
+    </div>
   </div>
 
-  <!-- Contenedor Principal -->
-  <div class="relative z-10 container mx-auto px-4 py-8 max-w-6xl flex-1 flex flex-col justify-between">
+  <!-- Contenedor Principal Adaptable -->
+  <div class="relative z-10 container mx-auto px-3 sm:px-6 py-6 max-w-7xl flex-1 flex flex-col justify-between">
 
-    <!-- Encabezado / Header -->
-    <header class="text-center my-6 md:my-10">
-      <div class="inline-block bg-red-950/80 border-4 border-yellow-500 p-4 md:p-6 rounded-none mb-4 pixel-box-gold max-w-4xl">
-        <p class="text-amber-400 font-pixel text-xs md:text-sm mb-2 tracking-widest">★ ESPECIAL DE NAVIDAD PERUANA 8-BIT ★</p>
-        <h1 class="text-2xl md:text-4xl lg:text-5xl font-pixel text-red-500 tracking-wider uppercase leading-tight title-glow">
+    <!-- Encabezado -->
+    <header class="text-center my-4 sm:my-8">
+      <div class="inline-block bg-red-950/90 border-4 border-yellow-500 p-4 sm:p-6 mb-4 pixel-box-gold max-w-4xl w-full">
+        <p class="text-amber-400 font-pixel text-[10px] sm:text-xs mb-2 tracking-widest">★ ESPECIAL NAVIDEÑO 8-BIT PERÚ ★</p>
+        <h1 class="text-xl sm:text-3xl md:text-5xl font-pixel text-red-500 tracking-wider uppercase leading-tight title-glow">
           HAZ CANTAR A LOS TORIBIANITOS
         </h1>
-        <p class="text-emerald-400 font-pixel text-xs md:text-base mt-3">
-          + DE NAVIDAD PIXEL ART PERÚ +
+        <p class="text-emerald-400 font-pixel text-[10px] sm:text-sm mt-2">
+          + CARABAYLLO & ARTE PIXELADO NACIONAL +
         </p>
       </div>
-      <p class="text-slate-300 text-sm md:text-base max-w-2xl mx-auto bg-slate-900/90 p-3 border border-slate-700">
-        Descarga completamente <span class="text-yellow-400 font-bold">GRATIS</span> los mejores artes navideños pixelados inspirados en el folklore, costa, sierra y selva de nuestro Perú.
+      <p class="text-slate-300 text-xs sm:text-sm max-w-2xl mx-auto bg-slate-900/90 p-3 border border-slate-800">
+        Descarga de forma totalmente <span class="text-yellow-400 font-bold">GRATIS</span> los artes navideños pixelados en alta calidad inspirados en nuestra costa, sierra y selva.
       </p>
     </header>
 
-    <!-- Galería de Descarga -->
-    <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-8">
+    <!-- Galería Ultra Responsiva de Arte -->
+    <main class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 my-6">
 
-      <!-- Tarjeta 1: Toribianitos (Vertical) -->
-      <div class="bg-slate-900 border-4 border-red-600 p-4 pixel-box flex flex-col justify-between group hover:scale-[1.02] transition-transform">
+      <!-- 1. testimen.jpg (Toribianitos) -->
+      <div class="bg-slate-900 border-4 border-red-600 p-3 sm:p-4 pixel-box flex flex-col justify-between group">
         <div>
-          <div class="relative overflow-hidden border-2 border-black bg-black aspect-[9/16] mb-4">
-            <img id="img-toribianitos" src="testimagen.jpg" alt="Toribianitos de Navidad" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/720x1280/800000/FFFFFF?text=Toribianitos+Pixel+Art'">
-            <div class="absolute top-2 left-2 bg-red-600 text-white font-pixel text-[10px] px-2 py-1 border border-black">
-              AFICHE NES
+          <div class="relative overflow-hidden border-2 border-black bg-black aspect-[9/16] mb-3">
+            <img id="img-1" src="testimagen.jpg" alt="testimagen.jpg" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/720x1280/800000/FFFFFF?text=testimagen.jpg'">
+            <div class="absolute top-2 left-2 bg-red-600 text-white font-pixel text-[9px] px-2 py-0.5 border border-black">
+              TESTIMEN.JPG
             </div>
           </div>
-          <h2 class="font-pixel text-yellow-400 text-sm md:text-base mb-2">1. Los Toribianitos 8-Bit</h2>
-          <p class="text-xs text-slate-300 mb-4">El coro navideño más emblemático del Perú cantando villancicos en formato retro.</p>
+          <h2 class="font-pixel text-yellow-400 text-xs sm:text-sm mb-1">Los Toribianitos 8-Bit</h2>
+          <p class="text-[11px] text-slate-300 mb-3">El icónico coro escolar peruano celebrando la Navidad al estilo clásico.</p>
         </div>
-        <button onclick="downloadImage('img-toribianitos', 'Toribianitos_Navidad_Pixel.jpg')" class="pixel-btn w-full bg-red-600 hover:bg-red-500 text-white font-pixel text-xs py-3 px-4 border-2 border-black flex items-center justify-center gap-2">
+        <button onclick="downloadExactImage('testimagen.jpg')" class="pixel-btn w-full bg-red-600 hover:bg-red-500 text-white font-pixel text-[11px] py-2.5 px-3 border-2 border-black flex items-center justify-center gap-2">
           <i data-lucide="download" class="w-4 h-4"></i> DESCARGAR GRATIS
         </button>
       </div>
 
-      <!-- Tarjeta 2: Iquitos -->
-      <div class="bg-slate-900 border-4 border-emerald-600 p-4 pixel-box-green flex flex-col justify-between group hover:scale-[1.02] transition-transform">
+      <!-- 2. Navidad en Iquitos_ Fiesta junto al río.png -->
+      <div class="bg-slate-900 border-4 border-emerald-600 p-3 sm:p-4 pixel-box-green flex flex-col justify-between group">
         <div>
-          <div class="relative overflow-hidden border-2 border-black bg-black aspect-video mb-4">
-            <img id="img-iquitos" src="Navidad en Iquitos_ Fiesta junto al río.png" alt="Navidad en Iquitos" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/1280x720/004d40/FFFFFF?text=Navidad+en+Iquitos+Pixel'">
-            <div class="absolute top-2 left-2 bg-emerald-600 text-white font-pixel text-[10px] px-2 py-1 border border-black">
-              SELVA PERUANA
+          <div class="relative overflow-hidden border-2 border-black bg-black aspect-video mb-3">
+            <img id="img-2" src="Navidad en Iquitos_ Fiesta junto al río.png" alt="Navidad en Iquitos_ Fiesta junto al río.png" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/1280x720/004d40/FFFFFF?text=Navidad+en+Iquitos'">
+            <div class="absolute top-2 left-2 bg-emerald-600 text-white font-pixel text-[9px] px-2 py-0.5 border border-black">
+              SELVA 8-BIT
             </div>
           </div>
-          <h2 class="font-pixel text-emerald-400 text-sm md:text-base mb-2">2. Navidad en Iquitos</h2>
-          <p class="text-xs text-slate-300 mb-4">Fiesta junto al río Amazonas, fuegos artificiales, delfines y arbolito tropical.</p>
+          <h2 class="font-pixel text-emerald-400 text-xs sm:text-sm mb-1">Navidad en Iquitos</h2>
+          <p class="text-[11px] text-slate-300 mb-3">Fiesta junto al majestuoso río Amazonas y fuegos artificiales.</p>
         </div>
-        <button onclick="downloadImage('img-iquitos', 'Navidad_Iquitos_Pixel.png')" class="pixel-btn w-full bg-emerald-600 hover:bg-emerald-500 text-white font-pixel text-xs py-3 px-4 border-2 border-black flex items-center justify-center gap-2">
+        <button onclick="downloadExactImage('Navidad en Iquitos_ Fiesta junto al río.png')" class="pixel-btn w-full bg-emerald-600 hover:bg-emerald-500 text-white font-pixel text-[11px] py-2.5 px-3 border-2 border-black flex items-center justify-center gap-2">
           <i data-lucide="download" class="w-4 h-4"></i> DESCARGAR GRATIS
         </button>
       </div>
 
-      <!-- Tarjeta 3: Cusco / Sierra -->
-      <div class="bg-slate-900 border-4 border-yellow-500 p-4 pixel-box-gold flex flex-col justify-between group hover:scale-[1.02] transition-transform">
+      <!-- 3. Navidad Andina en la Plaza Mayor.png -->
+      <div class="bg-slate-900 border-4 border-yellow-500 p-3 sm:p-4 pixel-box-gold flex flex-col justify-between group">
         <div>
-          <div class="relative overflow-hidden border-2 border-black bg-black aspect-video mb-4">
-            <img id="img-cusco" src="Navidad Andina en la Plaza Mayor.png" alt="Navidad Andina en Cusco" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/1280x720/78350f/FFFFFF?text=Navidad+Andina+Cusco'">
-            <div class="absolute top-2 left-2 bg-yellow-600 text-white font-pixel text-[10px] px-2 py-1 border border-black">
-              SIERRA ANDINA
+          <div class="relative overflow-hidden border-2 border-black bg-black aspect-video mb-3">
+            <img id="img-3" src="Navidad Andina en la Plaza Mayor.png" alt="Navidad Andina en la Plaza Mayor.png" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/1280x720/78350f/FFFFFF?text=Navidad+Andina'">
+            <div class="absolute top-2 left-2 bg-yellow-600 text-white font-pixel text-[9px] px-2 py-0.5 border border-black">
+              CUSCO ANDINO
             </div>
           </div>
-          <h2 class="font-pixel text-yellow-400 text-sm md:text-base mb-2">3. Plaza Mayor de Cusco</h2>
-          <p class="text-xs text-slate-300 mb-4">Celebración andina con chocolate caliente, chullos, llamas y la catedral cusqueña.</p>
+          <h2 class="font-pixel text-yellow-400 text-xs sm:text-sm mb-1">Navidad Andina</h2>
+          <p class="text-[11px] text-slate-300 mb-3">Chocolate caliente, chullos y celebración tradicional en la plaza cusqueña.</p>
         </div>
-        <button onclick="downloadImage('img-cusco', 'Navidad_Andina_Cusco_Pixel.png')" class="pixel-btn w-full bg-yellow-600 hover:bg-yellow-500 text-black font-pixel text-xs font-bold py-3 px-4 border-2 border-black flex items-center justify-center gap-2">
+        <button onclick="downloadExactImage('Navidad Andina en la Plaza Mayor.png')" class="pixel-btn w-full bg-yellow-600 hover:bg-yellow-500 text-black font-pixel text-[11px] font-bold py-2.5 px-3 border-2 border-black flex items-center justify-center gap-2">
           <i data-lucide="download" class="w-4 h-4"></i> DESCARGAR GRATIS
         </button>
       </div>
 
-      <!-- Tarjeta 4: Lima -->
-      <div class="bg-slate-900 border-4 border-red-600 p-4 pixel-box flex flex-col justify-between group hover:scale-[1.02] transition-transform">
+      <!-- 4. Navidad pixelada en Lima costera.png -->
+      <div class="bg-slate-900 border-4 border-red-600 p-3 sm:p-4 pixel-box flex flex-col justify-between group">
         <div>
-          <div class="relative overflow-hidden border-2 border-black bg-black aspect-video mb-4">
-            <img id="img-lima" src="Navidad pixelada en Lima costera.png" alt="Navidad en Lima" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/1280x720/991b1b/FFFFFF?text=Navidad+Lima+Pixel'">
-            <div class="absolute top-2 left-2 bg-red-600 text-white font-pixel text-[10px] px-2 py-1 border border-black">
-              LIMA BARRIAL
+          <div class="relative overflow-hidden border-2 border-black bg-black aspect-video mb-3">
+            <img id="img-4" src="Navidad pixelada en Lima costera.png" alt="Navidad pixelada en Lima costera.png" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/1280x720/991b1b/FFFFFF?text=Navidad+Lima'">
+            <div class="absolute top-2 left-2 bg-red-600 text-white font-pixel text-[9px] px-2 py-0.5 border border-black">
+              LIMA COSTERA
             </div>
           </div>
-          <h2 class="font-pixel text-red-400 text-sm md:text-base mb-2">4. Navidad en Lima</h2>
-          <p class="text-xs text-slate-300 mb-4">Chocolatada de barrio con panetón, fuegos artificiales en el cerro y mucha fe.</p>
+          <h2 class="font-pixel text-red-400 text-xs sm:text-sm mb-1">Navidad en Lima</h2>
+          <p class="text-[11px] text-slate-300 mb-3">Chocolatada de barrio con panetón y la hermosa vista hacia los cerros iluminados.</p>
         </div>
-        <button onclick="downloadImage('img-lima', 'Navidad_Lima_Costera_Pixel.png')" class="pixel-btn w-full bg-red-600 hover:bg-red-500 text-white font-pixel text-xs py-3 px-4 border-2 border-black flex items-center justify-center gap-2">
+        <button onclick="downloadExactImage('Navidad pixelada en Lima costera.png')" class="pixel-btn w-full bg-red-600 hover:bg-red-500 text-white font-pixel text-[11px] py-2.5 px-3 border-2 border-black flex items-center justify-center gap-2">
           <i data-lucide="download" class="w-4 h-4"></i> DESCARGAR GRATIS
         </button>
       </div>
 
-      <!-- Tarjeta 5: Callao -->
-      <div class="bg-slate-900 border-4 border-cyan-500 p-4 pixel-box flex flex-col justify-between group hover:scale-[1.02] transition-transform md:col-span-2 lg:col-span-1">
+      <!-- 5. Navidad pixelada en el Callao costero.png -->
+      <div class="bg-slate-900 border-4 border-cyan-500 p-3 sm:p-4 pixel-box-cyan flex flex-col justify-between group sm:col-span-2 lg:col-span-1">
         <div>
-          <div class="relative overflow-hidden border-2 border-black bg-black aspect-video mb-4">
-            <img id="img-callao" src="Navidad pixelada en el Callao costero.png" alt="Navidad en el Callao" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/1280x720/0e7490/FFFFFF?text=Navidad+Callao+Pixel'">
-            <div class="absolute top-2 left-2 bg-cyan-600 text-white font-pixel text-[10px] px-2 py-1 border border-black">
+          <div class="relative overflow-hidden border-2 border-black bg-black aspect-video mb-3">
+            <img id="img-5" src="Navidad pixelada en el Callao costero.png" alt="Navidad pixelada en el Callao costero.png" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/1280x720/0e7490/FFFFFF?text=Navidad+Callao'">
+            <div class="absolute top-2 left-2 bg-cyan-600 text-white font-pixel text-[9px] px-2 py-0.5 border border-black">
               PUERTO CHALACO
             </div>
           </div>
-          <h2 class="font-pixel text-cyan-400 text-sm md:text-base mb-2">5. Callao Costero</h2>
-          <p class="text-xs text-slate-300 mb-4">Navidad chalaca junto al faro, mariscos, anticuchos y el clásico ambiente marino.</p>
+          <h2 class="font-pixel text-cyan-400 text-xs sm:text-sm mb-1">Callao Costero</h2>
+          <p class="text-[11px] text-slate-300 mb-3">Ambiente marino chalaco con anticuchos, faro y celebración en el puerto.</p>
         </div>
-        <button onclick="downloadImage('img-callao', 'Navidad_Callao_Costero_Pixel.png')" class="pixel-btn w-full bg-cyan-600 hover:bg-cyan-500 text-white font-pixel text-xs py-3 px-4 border-2 border-black flex items-center justify-center gap-2">
+        <button onclick="downloadExactImage('Navidad pixelada en el Callao costero.png')" class="pixel-btn w-full bg-cyan-600 hover:bg-cyan-500 text-white font-pixel text-[11px] py-2.5 px-3 border-2 border-black flex items-center justify-center gap-2">
           <i data-lucide="download" class="w-4 h-4"></i> DESCARGAR GRATIS
         </button>
       </div>
 
     </main>
 
-    <!-- Sección de Apoyo YAPE -->
-    <section class="my-12">
-      <div class="bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-950 border-4 border-purple-500 p-6 md:p-8 pixel-box-purple text-center relative overflow-hidden">
+    <!-- Sección Yape Mejorada -->
+    <section class="my-10">
+      <div class="bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-950 border-4 border-purple-500 p-5 sm:p-8 pixel-box-purple text-center relative overflow-hidden">
         
-        <!-- Adorno navideño pixel -->
-        <div class="absolute -top-4 -right-4 w-16 h-16 bg-purple-600 transform rotate-45 border-2 border-black opacity-30"></div>
-
-        <div class="max-w-2xl mx-auto space-y-4">
-          <div class="inline-flex items-center gap-2 bg-purple-950 px-4 py-1 border border-purple-400 rounded-none text-purple-300 font-pixel text-xs">
-            <i data-lucide="heart" class="w-4 h-4 text-purple-400 fill-purple-400"></i> APOYA EL ARTE PERUANO
+        <div class="max-w-xl mx-auto space-y-4">
+          <div class="inline-flex items-center gap-2 bg-purple-950 px-3 py-1 border border-purple-400 text-purple-300 font-pixel text-[10px]">
+            <i data-lucide="heart" class="w-3.5 h-3.5 text-purple-400 fill-purple-400"></i> APOYA EL TALENTO LOCAL
           </div>
 
-          <h3 class="font-pixel text-lg md:text-2xl text-purple-200">
+          <h3 class="font-pixel text-base sm:text-xl text-purple-200">
             ¿TE GUSTÓ EL PROYECTO?
           </h3>
 
-          <p class="text-slate-200 text-xs md:text-sm">
-            Si deseas apoyar la creación de más arte pixelado 8-bit de nuestro querido Perú, ¡puedes invitarme un panetón o chocolate mediante Yape!
+          <p class="text-slate-200 text-xs sm:text-sm">
+            Si deseas apoyar la creación de más arte pixelado peruano 8-bit, ¡invítame un chocolate con panetón vía Yape!
           </p>
 
-          <!-- Tarjeta Yape -->
-          <div class="bg-slate-950/90 border-2 border-purple-400 p-4 max-w-md mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 mt-4">
-            <div class="text-left">
-              <span class="text-[10px] font-pixel text-purple-400 block uppercase">Número Yape</span>
-              <span id="yapeNumber" class="font-pixel text-xl md:text-2xl text-yellow-400 tracking-wider">918026576</span>
+          <div class="bg-slate-950/90 border-2 border-purple-400 p-4 max-w-sm mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-center sm:text-left">
+              <span class="text-[9px] font-pixel text-purple-400 block uppercase">Yape Oficial</span>
+              <span class="font-pixel text-xl sm:text-2xl text-yellow-400 tracking-wider">918026576</span>
             </div>
 
-            <button onclick="copyYapeNumber()" class="pixel-btn bg-purple-600 hover:bg-purple-500 text-white font-pixel text-xs py-3 px-5 border-2 border-black flex items-center gap-2 w-full sm:w-auto justify-center">
+            <button onclick="copyYapeNumber()" class="pixel-btn bg-purple-600 hover:bg-purple-500 text-white font-pixel text-xs py-2.5 px-4 border-2 border-black flex items-center gap-2 w-full sm:w-auto justify-center">
               <i data-lucide="copy" class="w-4 h-4"></i>
               <span id="copyBtnText">COPIAR</span>
             </button>
           </div>
 
-          <!-- Mensaje flotante de copia -->
-          <div id="copyToast" class="hidden text-emerald-400 font-pixel text-xs animate-bounce mt-2">
-            ¡NÚMERO COPIADO CON ÉXITO! ¡GRACIAS POR TU APOYO! 🇵🇪
+          <div id="copyToast" class="hidden text-emerald-400 font-pixel text-[10px] animate-bounce mt-2">
+            ¡NÚMERO COPIADO CON ÉXITO! ¡MUCHAS GRACIAS! 🇵🇪
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Pie de página -->
-    <footer class="text-center py-6 border-t border-slate-800 text-slate-500 text-xs font-pixel space-y-2">
-      <p>FELIZ NAVIDAD Y PROSPERO AÑO NUEVO EN EL PERÚ 🎄✨</p>
-      <p class="text-[10px] text-slate-600">Artes Pixel 8-Bit • Música: Cholito Jesús 8-Bit</p>
+    <!-- Footer -->
+    <footer class="text-center py-6 border-t border-slate-900 text-slate-500 text-[10px] sm:text-xs font-pixel space-y-1">
+      <p>FELIZ NAVIDAD 2026 EN EL PERÚ 🎄✨</p>
+      <p class="text-slate-600">Artes 8-Bit • Música: /cholitojesus8bit.mp3 (25% Vol)</p>
     </footer>
 
   </div>
 
-  <!-- Scripts Interactivos -->
+  <!-- Script Interactivo y Responsivo -->
   <script>
-    // Inicializar Iconos Lucide
     lucide.createIcons();
 
-    // 1. Manejo del Audio de Fondo (Requisito: /cholitojesus8bit.mp3 a 25% volumen)
     const audio = document.getElementById('bgMusic');
     const musicBtn = document.getElementById('musicToggle');
     const musicIcon = document.getElementById('musicIcon');
     const musicText = document.getElementById('musicText');
+    const volumeSlider = document.getElementById('volumeSlider');
 
-    // Configurar volumen al 25% exactamente
+    // Configurar volumen inicial exactamente al 25% (0.25)
     audio.volume = 0.25;
+    volumeSlider.value = 0.25;
 
     let isPlaying = false;
 
@@ -310,24 +313,30 @@
         musicIcon.setAttribute('data-lucide', 'volume-x');
       } else {
         audio.play().then(() => {
-          musicText.innerText = "Música: ON (25%)";
+          musicText.innerText = "Música: ON";
           musicBtn.classList.remove('bg-red-600', 'hover:bg-red-500');
           musicBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-500');
           musicIcon.setAttribute('data-lucide', 'volume-2');
         }).catch(err => {
-          console.log("Autoplay bloqueado por el navegador. Requiere interacción previa.");
+          console.log("Audio autoplay prevented by browser.");
         });
       }
       isPlaying = !isPlaying;
       lucide.createIcons();
     }
 
-    // Intentar reproducir automáticamente al primer clic en cualquier lugar
+    function changeVolume(val) {
+      audio.volume = parseFloat(val);
+      const percent = Math.round(val * 100);
+      musicText.innerText = percent + "%";
+    }
+
+    // Autoplay con primera interacción del usuario en la página
     document.addEventListener('click', function autoPlayOnce() {
       if (!isPlaying) {
         audio.play().then(() => {
           isPlaying = true;
-          musicText.innerText = "Música: ON (25%)";
+          musicText.innerText = "25% ON";
           musicBtn.classList.remove('bg-red-600', 'hover:bg-red-500');
           musicBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-500');
           musicIcon.setAttribute('data-lucide', 'volume-2');
@@ -337,24 +346,19 @@
       document.removeEventListener('click', autoPlayOnce);
     }, { once: true });
 
-    // 2. Función de Descarga Directa
-    function downloadImage(imgId, filename) {
-      const img = document.getElementById(imgId);
-      if (!img) return;
-
+    // Descarga directa usando el nombre exacto del archivo
+    function downloadExactImage(filename) {
       const a = document.createElement('a');
-      a.href = img.src;
+      a.href = filename;
       a.download = filename;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
     }
 
-    // 3. Función Copiar Yape al Portapapeles (Compatible con iFrames)
+    // Copiar número Yape (compatible con iFrames de previsualización)
     function copyYapeNumber() {
       const number = "918026576";
-      
-      // Fallback seguro usando execCommand
       const tempInput = document.createElement('input');
       tempInput.value = number;
       document.body.appendChild(tempInput);
@@ -362,7 +366,6 @@
       document.execCommand('copy');
       document.body.removeChild(tempInput);
 
-      // Mostrar feedback visual
       const copyBtnText = document.getElementById('copyBtnText');
       const toast = document.getElementById('copyToast');
 
@@ -375,7 +378,7 @@
       }, 3000);
     }
 
-    // 4. Animación de Nieve Pixelada (Canvas)
+    // Nieve Pixelada con Canvas (Responsivo al redimensionar)
     const canvas = document.getElementById('snowCanvas');
     const ctx = canvas.getContext('2d');
 
@@ -388,30 +391,28 @@
     resizeCanvas();
 
     const flakes = [];
-    const numFlakes = 60;
+    const numFlakes = 50;
 
     for (let i = 0; i < numFlakes; i++) {
       flakes.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        size: Math.floor(Math.random() * 3) + 2, // Cuadrados de 2 a 4px (Pixel Art)
-        speed: Math.random() * 1.5 + 0.5,
-        opacity: Math.random() * 0.7 + 0.3
+        size: Math.floor(Math.random() * 3) + 2,
+        speed: Math.random() * 1.2 + 0.4,
+        opacity: Math.random() * 0.6 + 0.3
       });
     }
 
     function animateSnow() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
       ctx.fillStyle = '#ffffff';
 
       flakes.forEach(flake => {
         ctx.globalAlpha = flake.opacity;
-        // Dibujar cuadrados exactos para estética pixel art
         ctx.fillRect(Math.floor(flake.x), Math.floor(flake.y), flake.size, flake.size);
 
         flake.y += flake.speed;
-        flake.x += Math.sin(flake.y * 0.02) * 0.3;
+        flake.x += Math.sin(flake.y * 0.02) * 0.2;
 
         if (flake.y > canvas.height) {
           flake.y = -10;
