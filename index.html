@@ -122,9 +122,11 @@
   <canvas id="snowCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
   <!-- Audio de Fondo -->
-  <audio id="bgMusic" loop src="./cholitojesus8bit.mp3"></audio>
+  <audio id="bgMusic" loop preload="auto">
+    <source src="cholitojesus8bit.mp3" type="audio/mpeg">
+  </audio>
 
-  <!-- Reproductor Flotante Ultra Responsivo -->
+  <!-- Reproductor Flotante Ultra Responsivo con opción de Descarga -->
   <div class="fixed top-3 right-3 z-50 flex items-center gap-2 bg-slate-900/95 border-2 border-emerald-500 p-2 pixel-box-green shadow-2xl">
     <button id="musicToggle" onclick="toggleAudio()" class="pixel-btn bg-red-600 hover:bg-red-500 text-white p-2 text-[10px] md:text-xs font-pixel flex items-center gap-1.5">
       <i data-lucide="volume-x" id="musicIcon" class="w-4 h-4"></i>
@@ -133,6 +135,11 @@
     <div class="flex items-center gap-1">
       <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.25" oninput="changeVolume(this.value)" class="w-14 sm:w-20 accent-emerald-500 cursor-pointer h-2 bg-slate-800 rounded-none">
     </div>
+    <!-- Botón Descargar Canción -->
+    <button onclick="downloadExactImage('cholitojesus8bit.mp3')" title="Descargar MP3 gratis" class="pixel-btn bg-yellow-500 hover:bg-yellow-400 text-black p-2 text-[10px] font-pixel flex items-center gap-1">
+      <i data-lucide="music" class="w-4 h-4"></i>
+      <i data-lucide="download" class="w-3 h-3"></i>
+    </button>
   </div>
 
   <!-- Contenedor Principal Adaptable -->
@@ -157,13 +164,17 @@
     <!-- Galería Ultra Responsiva de Arte -->
     <main class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 my-6">
 
-      <!-- 1. testimen.jpg (Toribianitos) -->
+      <!-- 1. cilx7.jpg (Toribianitos) -->
       <div class="bg-slate-900 border-4 border-red-600 p-3 sm:p-4 pixel-box flex flex-col justify-between group">
         <div>
           <div class="relative overflow-hidden border-2 border-black bg-black aspect-[9/16] mb-3">
             <img id="img-1" src="cilx7.jpg" alt="cilx7.jpg" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/720x1280/800000/FFFFFF?text=celular.jpg'">
             <div class="absolute top-2 left-2 bg-red-600 text-white font-pixel text-[9px] px-2 py-0.5 border border-black">
               Para Celular
+            </div>
+            <!-- Etiqueta de dimensión -->
+            <div id="dim-img-1" class="absolute bottom-2 right-2 bg-black/80 text-amber-300 font-pixel text-[8px] px-1.5 py-0.5 border border-amber-500/50">
+              Cargando...
             </div>
           </div>
           <h2 class="font-pixel text-yellow-400 text-xs sm:text-sm mb-1">Los Toribianitos 8-Bit</h2>
@@ -182,6 +193,10 @@
             <div class="absolute top-2 left-2 bg-emerald-600 text-white font-pixel text-[9px] px-2 py-0.5 border border-black">
               SELVA 8-BIT
             </div>
+            <!-- Etiqueta de dimensión -->
+            <div id="dim-img-2" class="absolute bottom-2 right-2 bg-black/80 text-amber-300 font-pixel text-[8px] px-1.5 py-0.5 border border-amber-500/50">
+              Cargando...
+            </div>
           </div>
           <h2 class="font-pixel text-emerald-400 text-xs sm:text-sm mb-1">Navidad en Iquitos</h2>
           <p class="text-[11px] text-slate-300 mb-3">Fiesta junto al majestuoso río Amazonas y fuegos artificiales.</p>
@@ -198,6 +213,10 @@
             <img id="img-3" src="Navidad Andina en la Plaza Mayor.png" alt="Navidad Andina en la Plaza Mayor.png" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/1280x720/78350f/FFFFFF?text=Navidad+Andina'">
             <div class="absolute top-2 left-2 bg-yellow-600 text-white font-pixel text-[9px] px-2 py-0.5 border border-black">
               CUSCO ANDINO
+            </div>
+            <!-- Etiqueta de dimensión -->
+            <div id="dim-img-3" class="absolute bottom-2 right-2 bg-black/80 text-amber-300 font-pixel text-[8px] px-1.5 py-0.5 border border-amber-500/50">
+              Cargando...
             </div>
           </div>
           <h2 class="font-pixel text-yellow-400 text-xs sm:text-sm mb-1">Navidad Andina</h2>
@@ -216,6 +235,10 @@
             <div class="absolute top-2 left-2 bg-red-600 text-white font-pixel text-[9px] px-2 py-0.5 border border-black">
               LIMA COSTERA
             </div>
+            <!-- Etiqueta de dimensión -->
+            <div id="dim-img-4" class="absolute bottom-2 right-2 bg-black/80 text-amber-300 font-pixel text-[8px] px-1.5 py-0.5 border border-amber-500/50">
+              Cargando...
+            </div>
           </div>
           <h2 class="font-pixel text-red-400 text-xs sm:text-sm mb-1">Navidad en Lima</h2>
           <p class="text-[11px] text-slate-300 mb-3">Chocolatada de barrio con panetón y la hermosa vista hacia los cerros iluminados.</p>
@@ -232,6 +255,10 @@
             <img id="img-5" src="Navidad pixelada en el Callao costero.png" alt="Navidad pixelada en el Callao costero.png" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/1280x720/0e7490/FFFFFF?text=Navidad+Callao'">
             <div class="absolute top-2 left-2 bg-cyan-600 text-white font-pixel text-[9px] px-2 py-0.5 border border-black">
               PUERTO CHALACO
+            </div>
+            <!-- Etiqueta de dimensión -->
+            <div id="dim-img-5" class="absolute bottom-2 right-2 bg-black/80 text-amber-300 font-pixel text-[8px] px-1.5 py-0.5 border border-amber-500/50">
+              Cargando...
             </div>
           </div>
           <h2 class="font-pixel text-cyan-400 text-xs sm:text-sm mb-1">Callao Costero</h2>
@@ -283,7 +310,7 @@
     <!-- Footer -->
     <footer class="text-center py-6 border-t border-slate-900 text-slate-500 text-[10px] sm:text-xs font-pixel space-y-1">
       <p>FELIZ NAVIDAD 2026 EN EL PERÚ 🎄✨</p>
-      <p class="text-slate-600">2026</p>
+      <p class="text-slate-600">Artes & Canción 8-Bit • Descargas Libres</p>
     </footer>
 
   </div>
@@ -298,7 +325,7 @@
     const musicText = document.getElementById('musicText');
     const volumeSlider = document.getElementById('volumeSlider');
 
-    // Configurar volumen inicial exactamente al 25% (0.25)
+    // Configurar volumen inicial al 25%
     audio.volume = 0.25;
     volumeSlider.value = 0.25;
 
@@ -328,8 +355,8 @@
         audio.play().then(() => {
           updateAudioUI(true);
         }).catch(err => {
-          console.log("Reproducción bloqueada o error:", err);
-          alert("El navegador requiere interacción previa o el archivo no se pudo reproducir.");
+          console.error("Error al reproducir audio:", err);
+          alert("Asegúrate de que 'cholitojesus8bit.mp3' esté en la misma carpeta.");
         });
       }
     }
@@ -342,7 +369,7 @@
       }
     }
 
-    // Autoplay con primera interacción del usuario en la página
+    // Autoplay al hacer primer clic
     document.addEventListener('click', function autoPlayOnce() {
       if (!isPlaying) {
         audio.play().then(() => {
@@ -352,7 +379,33 @@
       document.removeEventListener('click', autoPlayOnce);
     }, { once: true });
 
-    // Descarga directa usando el nombre exacto del archivo
+    // Detectar tamaño real de cada imagen al cargar
+    function detectImageDimensions() {
+      const imgIds = ['img-1', 'img-2', 'img-3', 'img-4', 'img-5'];
+      imgIds.forEach(id => {
+        const img = document.getElementById(id);
+        const dimLabel = document.getElementById('dim-' + id);
+
+        const updateLabel = () => {
+          if (img.naturalWidth && img.naturalHeight) {
+            dimLabel.innerText = `${img.naturalWidth}x${img.naturalHeight} px`;
+          } else {
+            dimLabel.innerText = "N/A";
+          }
+        };
+
+        if (img.complete) {
+          updateLabel();
+        } else {
+          img.addEventListener('load', updateLabel);
+          img.addEventListener('error', () => {
+            dimLabel.innerText = "Error img";
+          });
+        }
+      });
+    }
+
+    // Descarga directa respetando el nombre exacto
     function downloadExactImage(filename) {
       const a = document.createElement('a');
       a.href = filename;
@@ -362,7 +415,7 @@
       document.body.removeChild(a);
     }
 
-    // Copiar número Yape (compatible con iFrames de previsualización)
+    // Copiar número Yape
     function copyYapeNumber() {
       const number = "918026576";
       const tempInput = document.createElement('input');
@@ -384,7 +437,7 @@
       }, 3000);
     }
 
-    // Nieve Pixelada con Canvas (Responsivo al redimensionar)
+    // Nieve Pixelada
     const canvas = document.getElementById('snowCanvas');
     const ctx = canvas.getContext('2d');
 
@@ -431,6 +484,7 @@
 
     window.onload = function() {
       animateSnow();
+      detectImageDimensions();
     };
   </script>
 </body>
